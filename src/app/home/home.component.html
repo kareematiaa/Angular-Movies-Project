@@ -1,0 +1,73 @@
+<div class="row gy-3 my-3">
+    <div class="col-md-10">
+
+    </div>
+
+    <div class="col-md-2">
+        <input [(ngModel)]="term" type="text" placeholder="search here" class="form-control mb-3  text-white">
+    </div>
+
+
+
+    <div class="col-md-4">
+        <div class="brdr w-25 mt-5 mb-3"></div>
+        <h2 class="h6">Trending <br> Movies <br />To Watch Right Now</h2>
+        <p class="text-muted py-2">most Watched Movies By The Day</p>
+        <div class="brdr w-100 mb-3"></div>
+    </div>
+
+    <div *ngFor="let item of trendingMovies|search:term" class="col-md-2">
+        <a [routerLink]="['/details',item.id,item.media_type]">
+            <div class="item position-relative">
+                <img class="w-100" [src]="imgPath+item.poster_path" alt="">
+                <div class="vote position-absolute top-0 end-0 text-white rounded p-1">{{item.vote_average.toFixed(1)}}
+                </div>
+                <h3>{{item.title}}</h3>
+            </div>
+        </a>
+    </div>
+</div>
+
+
+<div class="row gy-3 my-3">
+
+    <div class="col-md-4">
+        <div class="brdr w-25 mt-5 mb-3"></div>
+        <h2 class="h6">Trending <br> tv <br />To Watch Right Now</h2>
+        <p class="text-muted py-2">most Watched Movies By The Day</p>
+        <div class="brdr w-100 mb-3"></div>
+    </div>
+
+    <div *ngFor="let item of trendingTv" class="col-md-2">
+        <a [routerLink]="['/details',item.id,item.media_type]">
+            <div class="item position-relative">
+                <img class="w-100" [src]="imgPath+item.poster_path" alt="">
+                <div class="vote position-absolute top-0 end-0 text-white rounded p-1">{{item.vote_average.toFixed(1)}}
+                </div>
+                <h3>{{item.name}}</h3>
+            </div>
+        </a>
+    </div>
+</div>
+
+<div class="row gy-3 my-3">
+
+    <div class="col-md-4">
+        <div class="brdr w-25 mt-5 mb-3"></div>
+        <h2 class="h6">Trending <br> people <br />To Watch Right Now</h2>
+        <p class="text-muted py-2">most Watched Movies By The Day</p>
+        <div class="brdr w-100 mb-3"></div>
+    </div>
+
+    <div *ngFor="let item of trendingPeople" class="col-md-2">
+        <a [routerLink]="['/details',item.id,item.media_type]">
+            <div class="item position-relative">
+                <img *ngIf="item.poster_path" class="w-100" [src]="imgPath+item.poster_path" alt="">
+                <img *ngIf="item.profile_path" class="w-100" [src]="imgPath+item.profile_path" alt="">
+                <div class="vote position-absolute top-0 end-0 text-white rounded p-1">{{item.popularity.toFixed(1)}}
+                </div>
+                <h3>{{item.name}}</h3>
+            </div>
+        </a>
+    </div>
+</div>

@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Chivo+Mono&family=Montserrat+Alternates&display=swap');
+
+:root
+{
+    --bg-main:#131722;
+    --light-bg:#24baef;
+    --main-font:'Montserrat Alternates', sans-serif;
+    --text-color:#fff;
+    --border-color:#a8a8a83d;
+}
+
+body
+{
+    background-color: var(--bg-main);
+    font-family: 'Montserrat Alternates', sans-serif;
+    color: var(--text-color);
+}
+
+.bg-mine-light
+{
+    background-color: var(--light-bg);
+}
+
+a,a:hover
+{
+    color: var(--text-color);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.input-mine
+{
+  background-color: transparent;
+  color: var(--text-color);
+  border: solid 1px var(--border-color);
+}
+
+.brdr
+{
+    height: 1px;
+    background-color: var(--border-color);
+}
+.vote
+{
+    background-color: var(--light-bg);
+}
+
+.bg
+{
+    color: rgba(255, 255, 255, 0.471);
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+@import 'ngx-toastr/toastr-bs5-alert';

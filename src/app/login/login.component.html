@@ -1,0 +1,33 @@
+<h1 class="text-center text-info my-4">welcome back !</h1>
+<div class="ms-5 ps-5">
+  <form class="ms-5" (ngSubmit)="submitLoginForm()" [formGroup]="loginForm">
+    <div class="ms-5 ps-5">
+
+
+      <mat-form-field appearance="fill" class="bg mt-4 w-75 ">
+        <mat-label class="text-light">userName</mat-label>
+        <input matInput formControlName="userName">
+        <mat-error class="pb-4" *ngIf="loginForm.get('userName')?.errors && loginForm.get('userName')?.touched">
+          <p *ngIf="loginForm.get('userName')?.getError('required')">input is requierd</p>
+
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="bg mt-4 w-75 ">
+        <mat-label class="text-light">password</mat-label>
+        <input matInput type="password" formControlName="password">
+
+        <mat-error class="pb-4" *ngIf="loginForm.get('password')?.errors && loginForm.get('password')?.touched">
+          <p *ngIf="loginForm.get('password')?.getError('required')">input is requierd</p>
+          <p *ngIf="loginForm.get('password')?.getError('pattern')">it must begin with 1 capital letter the numbers (max
+            8)</p>
+        </mat-error>
+      </mat-form-field>
+
+      <div class="d-grid gap-2 mt-3">
+        <button [disabled]="loginForm.invalid" type="submit" class="btn btn-outline-info w-75">Login </button>
+      </div>
+    </div>
+  </form>
+</div>
+<p class="text-center pt-3">dont have acount?<a routerLink="/regiester"> REGISTER!</a></p>

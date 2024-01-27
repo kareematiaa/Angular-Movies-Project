@@ -1,0 +1,94 @@
+<h1 class="text-center text-info my-4">Register Now !</h1>
+<div class="ms-5 ps-5">
+  <form class="" (ngSubmit)="submitRegisterForm()" [formGroup]="registerForm">
+    <div class="ms-5 ps-5">
+
+      <mat-form-field appearance="fill" class="bg mt-4 w-75">
+        <mat-label class="text-light">First Name</mat-label>
+        <input matInput formControlName="firstName">
+        <mat-error class="pb-4" *ngIf="registerForm.get('firstName')?.errors && registerForm.get('firstName')?.touched">
+          <p *ngIf="registerForm.get('firstName')?.getError('required')">input is requierd</p>
+          <p *ngIf="registerForm.get('firstName')?.getError('maxlength')">max length is 10</p>
+          <p *ngIf="registerForm.get('firstName')?.getError('minlength')">min length is 3</p>
+        </mat-error>
+      </mat-form-field>
+
+
+      <mat-form-field appearance="fill" class="bg mt-4 w-75">
+        <mat-label class="text-light">last Name</mat-label>
+        <input matInput formControlName="lastName">
+        <mat-error class="pb-4" *ngIf="registerForm.get('lastName')?.errors && registerForm.get('lastName')?.touched">
+          <p *ngIf="registerForm.get('lastName')?.getError('required')">input is requierd</p>
+          <p *ngIf="registerForm.get('lastName')?.getError('maxlength')">max length is 10</p>
+          <p *ngIf="registerForm.get('lastName')?.getError('minlength')">min length is 3</p>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="bg mt-4 w-75">
+        <mat-label class="text-light">phone</mat-label>
+        <input matInput formControlName="phone" type="text">
+        <mat-error class="pb-4" *ngIf="registerForm.get('phone')?.errors && registerForm.get('phone')?.touched">
+          <p *ngIf="registerForm.get('phone')?.getError('required')">input is requierd</p>
+          <p *ngIf="registerForm.get('phone')?.getError('max')">max age is 80</p>
+          <p *ngIf="registerForm.get('phone')?.getError('min')">min length is 16</p>
+        </mat-error>
+      </mat-form-field>
+
+
+      <mat-form-field appearance="fill" class="bg mt-4 w-75 ">
+        <mat-label class="text-light">email</mat-label>
+        <input matInput formControlName="email">
+        <mat-error class="pb-4" *ngIf="registerForm.get('email')?.errors && registerForm.get('email')?.touched">
+          <p *ngIf="registerForm.get('email')?.getError('required')">input is requierd</p>
+          <p *ngIf="registerForm.get('email')?.getError('email')">enter valid email</p>
+        </mat-error>
+      </mat-form-field>
+
+
+      <mat-form-field appearance="fill" class="bg mt-4 w-75 ">
+        <mat-label class="text-light">user</mat-label>
+        <input matInput formControlName="userName">
+        <mat-error class="pb-4" *ngIf="registerForm.get('userName')?.errors && registerForm.get('userName')?.touched">
+          <p *ngIf="registerForm.get('userName')?.getError('required')">input is requierd</p>
+          <p *ngIf="registerForm.get('userName')?.getError('user')">enter valid email</p>
+        </mat-error>
+      </mat-form-field>
+
+
+      <p class="text-danger">{{error}}</p>
+
+      <mat-form-field appearance="fill" class="bg mt-4 w-75 ">
+        <mat-label class="text-light">password</mat-label>
+        <input matInput type="password" [type]="hide ? 'password' : 'text'" formControlName="password">
+
+        <mat-error class="pb-4" *ngIf="registerForm.get('password')?.errors && registerForm.get('password')?.touched">
+          <p *ngIf="registerForm.get('password')?.getError('required')">input is requierd</p>
+          <p *ngIf="registerForm.get('password')?.getError('pattern')">it must begin with 1 capital letter the numbers
+            (max 8)</p>
+        </mat-error>
+      </mat-form-field>
+
+
+      <mat-form-field appearance="fill" class="bg mt-4 w-75 ">
+        <mat-label class="text-light">Confirm Password</mat-label>
+        <input matInput type="password" formControlName="confirmPassword">
+
+        <mat-error class="pb-4"
+          *ngIf="registerForm.get('confirmPassword')?.errors && registerForm.get('confirmPassword')?.touched">
+          <p *ngIf="registerForm.get('confirmPassword')?.getError('required')">input is requierd</p>
+          <p *ngIf="registerForm.get('confirmPassword')?.getError('pattern')">it must begin with 1 capital letter the
+            numbers
+            (max 8)</p>
+        </mat-error>
+      </mat-form-field>
+
+      <div class="mt-3">
+
+        <button [disabled]="registerForm.invalid" type="submit" class="btn btn-outline-info"> register </button>
+
+      </div>
+
+    </div>
+  </form>
+</div>
+<p class="text-center pt-3">already have acount?<a routerLink="/login"> LOGIN!</a></p>
